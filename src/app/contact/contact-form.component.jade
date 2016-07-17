@@ -1,0 +1,12 @@
+form('#contactForm'='ngForm' '(ngSubmit)'='onSubmit()')
+  p
+    labe Name
+    input(type='text' name='name' '[(ngModel)]'='contact.name' required)
+  p
+    label Tel
+    input(type='text' name='tel' '[(ngModel)]'='contact.tel' required)
+  p
+    label Email
+    input(type='text' name='email' '[(ngModel)]'='contact.email' required)
+  p
+    button(type='submit' '[disabled]'='!contactForm.form.valid') Save
