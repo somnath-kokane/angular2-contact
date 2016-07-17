@@ -1,0 +1,45 @@
+{
+  "name": "ng2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run jade:w\" \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "typings": "typings",
+    "tsc:w": "tsc -w",
+    "postinstall": "typings install",
+    "jade": "pug",
+    "jade:w": "pug src -P -w",
+    "app:w": "tsc && concurrently \"npm run jade:w\" \"npm run tsc:w\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^2.0.0-rc.4",
+    "@angular/compiler": "^2.0.0-rc.4",
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/forms": "^0.2.0",
+    "@angular/http": "^2.0.0-rc.4",
+    "@angular/platform-browser": "^2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
+    "@angular/router": "^3.0.0-beta.2",
+    "bootstrap": "^3.3.6",
+    "core-js": "^2.4.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.10",
+    "systemjs": "^0.19.31",
+    "systemjs-plugin-text": "0.0.8",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "concurrently": "^2.2.0",
+    "lite-server": "^2.2.2",
+    "pug": "^2.0.0-beta3",
+    "pug-cli": "^1.0.0-alpha6",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.1"
+  }
+}
