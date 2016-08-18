@@ -1,0 +1,12 @@
+
+.row('*ngIf'='contact')
+  .col-md-6
+    form.form-horizontal('#cForm'='ngForm' '(ngSubmit)'='onSubmit()')
+      .form-group
+        label(for='name')
+        input.form-control(type='text' required name='name'
+          '[(ngModel)]'='contact.name' #name='ngModel')
+      div
+        a.btn.btn-default(routerLink='../../') Cancel
+        button.btn.btn-primary.pull-right(type='submit' '[disabled]'='!cForm.form.valid') Save
+        

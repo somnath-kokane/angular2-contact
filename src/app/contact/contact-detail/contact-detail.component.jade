@@ -1,0 +1,10 @@
+
+.row
+  .col-md-6
+    p
+      a.btn.btn-default(routerLink='../../') Contact List
+    .list-group('*ngIf'='contact') 
+      a.list-group-item(routerLink='../../form/{{contact.id}}') {{contact.name}}
+    p('*ngIf'='contact')
+      button.btn.btn-danger(type='button' '(click)'='onDelete()') Delete Contact
+      a.btn.btn-primary.pull-right( routerLink='../../form/{{contact.id}}') Edit Contact
