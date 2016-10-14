@@ -8,10 +8,11 @@ import { Contact, ContactService } from '../shared/contact.service'
   template: require('./contact-list.component.html!')
 })
 export class ContactListComponent implements OnInit {
-  contacts: Promise<Contact[]>;
+  contacts: Contact[];
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-   this.contacts = this.contactService.getContacts();
+   this.contactService.getContacts()
+     .subscribe((contacts) => this.contacts = contacts);
   }
 }

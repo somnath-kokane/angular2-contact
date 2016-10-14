@@ -18,10 +18,11 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
     if(id == 'new'){
-      this.contact = new Contact(this.contactService.getNextId(), '');
+      this.contact = new Contact();
+      this.contact.id = this.contactService.getNextId();
     } else {
       this.contactService.getContact(id)
-        .then(contact => this.contact = contact);
+        .subscribe(contact => this.contact = contact);
     }
     
   }
