@@ -1,0 +1,23 @@
+html
+  head
+    base(href="/")
+    title Angular 2 QuickStart
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="bootstrap/dist/css/bootstrap.css")
+    link(rel="stylesheet" href="css/styles.css")
+    script(src="core-js/client/shim.min.js")
+    script(src="zone.js/dist/zone.js")
+    script(src="reflect-metadata/Reflect.js")
+    script(src="systemjs/dist/system.js")
+    script.
+      System.import('systemjs.config.js')
+        .then(function(){
+          System.import('main');
+        })
+        .catch(function(err){ 
+          console.error('err', err); 
+        });
+    
+  body
+    my-app Loading...

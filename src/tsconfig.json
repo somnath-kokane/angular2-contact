@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "sourceRoot": "./auth",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "../dist"
+  },
+  "files": [
+    "main.ts",
+    "systemjs.config.ts",
+    "index.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

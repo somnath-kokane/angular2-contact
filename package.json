@@ -1,0 +1,47 @@
+{
+  "name": "angular2-contact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run tsc && concurrently --kill-others \"npm run jade:w\" \"npm run tsc:w\" \"npm run serve\" ",
+    "serve": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -p src",
+    "typings": "typings",
+    "tsc:w": "tsc -w -p src",
+    "postinstall": "typings install",
+    "jade": "pug src -P --out dist/",
+    "jade:w": "pug src -P -w --out dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "@angular/common": "~2.1.0",
+    "@angular/compiler": "~2.1.0",
+    "@angular/core": "~2.1.0",
+    "@angular/forms": "~2.1.0",
+    "@angular/http": "~2.1.0",
+    "@angular/platform-browser": "~2.1.0",
+    "@angular/platform-browser-dynamic": "~2.1.0",
+    "@angular/router": "~3.1.0",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "systemjs-plugin-text": "0.0.8",
+    "zone.js": "^0.6.25"
+  },
+  "devDependencies": {
+    "concurrently": "^3.0.0",
+    "express": "^4.14.0",
+    "jasmine": "^2.4.1",
+    "pug": "^2.0.0-beta5",
+    "pug-cli": "^1.0.0-alpha6",
+    "typescript": "^2.0.3",
+    "typings":"^1.4.0"
+  }
+}
