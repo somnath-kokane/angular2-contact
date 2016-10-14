@@ -10,7 +10,6 @@
     "tsc": "tsc -p src",
     "typings": "typings",
     "tsc:w": "tsc -w -p src",
-    "postinstall": "typings install",
     "jade": "pug src -P --out dist/",
     "jade:w": "pug src -P -w --out dist/"
   },
@@ -36,12 +35,15 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/jasmine": "^2.5.35",
+    "@types/node": "^6.0.45",
+    "@types/systemjs": "^0.19.31",
     "concurrently": "^3.0.0",
     "express": "^4.14.0",
     "jasmine": "^2.4.1",
     "pug": "^2.0.0-beta5",
     "pug-cli": "^1.0.0-alpha6",
-    "typescript": "^2.0.3",
-    "typings":"^1.4.0"
+    "typescript": "^2.0.3"
   }
 }

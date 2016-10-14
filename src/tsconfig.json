@@ -13,8 +13,7 @@
   },
   "files": [
     "main.ts",
-    "systemjs.config.ts",
-    "index.d.ts"
+    "systemjs.config.ts"
   ],
   "exclude": [
     "node_modules"

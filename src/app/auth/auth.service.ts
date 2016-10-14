@@ -10,7 +10,6 @@ export class AuthService {
 
   login(user:any): Observable<any> {
     let body = JSON.stringify(user);
-    console.log('body', body)
     let url = '/v1/login';
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -36,7 +35,6 @@ export class AuthService {
   }
 
   private handleError(error: any){
-    console.log('err', error.stack);
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
