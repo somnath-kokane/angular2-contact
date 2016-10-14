@@ -1,44 +1,23 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+
+import {RestService} from '../shared/rest.service';
 
 @Injectable()
 export class AuthService {
   
   constructor(
-    private http: Http) {}
+    private rest: RestService) {}
 
-  login(user:any): Observable<any> {
+  login(user: any): Observable<any> {
     let body = JSON.stringify(user);
     let url = '/v1/login';
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
 
-    return this.http
-      .post(url, body, options)
-      .map(this.handleResponse)
+    return this.rest.post(url, body)
       .map((data) => {
         sessionStorage.setItem('isLogin', data.isLogin);
         return data;
-      })
-      .catch(this.handleError);
-  }
-
-  private handleResponse(res: Response){
-    let json = res.json();
-    let status = json.status || {};
-    let data = json.data;
-    if(!!status.success === false){
-      return Observable.throw(status.message);
-    }
-    return data;
-  }
-
-  private handleError(error: any){
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
+      });
   }
 
 }

@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import ContactModule from './contact/contact.module';
 import AuthModule from './auth/auth.module';
 
+import {RestService} from './shared/rest.service';
+
 import { routing } from './app.routing';
 
 @NgModule({
@@ -22,5 +24,6 @@ import { routing } from './app.routing';
       FormsModule
     ],
     bootstrap: [AppComponent],
+    providers: [RestService]
 })
 export class AppModule {}
