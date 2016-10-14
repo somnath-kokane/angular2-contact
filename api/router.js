@@ -26,14 +26,19 @@ router.use(function(req, res, next){
 })
 
 router.use(function(err, req, res, next){
+  var statusCode = 500;
+  if(err instanceof auth.Http401Error){
+    statusCode = 401;
+  }
   var json = {
     status: {
-      code: 500,
+      code: statusCode,
       success: false,
       message: err.message
     }
   }
-  res.status(500).json(json);
+
+  res.status(statusCode).json(json);
 })
 
 module.exports = router;

@@ -17,30 +17,31 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/common": "^2.0.0-rc.5",
-    "@angular/compiler": "^2.0.0-rc.5",
-    "@angular/core": "^2.0.0-rc.5",
-    "@angular/forms": "^0.3.0",
-    "@angular/http": "^2.0.0-rc.5",
-    "@angular/platform-browser": "^2.0.0-rc.5",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
-    "@angular/router": "^3.0.0-rc.1",
     "body-parser": "^1.15.2",
+    "@angular/common": "~2.1.0",
+    "@angular/compiler": "~2.1.0",
+    "@angular/core": "~2.1.0",
+    "@angular/forms": "~2.1.0",
+    "@angular/http": "~2.1.0",
+    "@angular/platform-browser": "~2.1.0",
+    "@angular/platform-browser-dynamic": "~2.1.0",
+    "@angular/router": "~3.1.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "es6-shim": "^0.35.1",
     "reflect-metadata": "^0.1.8",
-    "rxjs": "^5.0.0-beta.11",
-    "systemjs": "^0.19.36",
+    "rxjs": "^5.0.0-beta.12",
+    "systemjs": "0.19.39",
     "systemjs-plugin-text": "0.0.8",
-    "zone.js": "^0.6.14"
+    "zone.js": "^0.6.25"
   },
   "devDependencies": {
-    "concurrently": "^2.2.0",
+    "concurrently": "^3.0.0",
     "express": "^4.14.0",
     "jasmine": "^2.4.1",
     "pug": "^2.0.0-beta5",
     "pug-cli": "^1.0.0-alpha6",
-    "typescript": "^1.8.10"
+    "typescript": "^2.0.3",
+    "typings":"^1.4.0"
   }
 }

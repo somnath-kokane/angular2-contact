@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Contact, ContactService } from '../shared/contact.service'
+import { Contact, ContactService } from '../contact.service'
 
 @Component({
   moduleId: module.id,
@@ -9,10 +9,11 @@ import { Contact, ContactService } from '../shared/contact.service'
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
-  constructor(private contactService: ContactService) {}
+  constructor(
+    private service: ContactService) {}
 
   ngOnInit() {
-   this.contactService.getContacts()
+   this.service.getContacts()
      .subscribe((contacts) => this.contacts = contacts);
   }
 }

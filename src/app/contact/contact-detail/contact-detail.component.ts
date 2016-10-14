@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 
-import { Contact, ContactService } from '../shared/contact.service';
+import { Contact, ContactService } from '../contact.service';
 
 @Component({
   //moduleId: module.id,
@@ -13,16 +13,16 @@ export class ContactDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
-    private contactService: ContactService) {}
+    private service: ContactService) {}
   
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
-    this.contactService.getContact(id)
+    this.service.getContact(id)
       .subscribe(contact => this.contact = contact);
   }
 
   onDelete(){
-    this.contactService.deleteContact(this.contact);
+    this.service.deleteContact(this.contact);
     this.router.navigate(['/contact']);
   }
 }

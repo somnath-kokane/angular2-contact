@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import ContactModule from './contact/contact.module';
+import AuthModule from './auth/auth.module';
 
 import { routing } from './app.routing';
 
@@ -15,6 +16,7 @@ import { routing } from './app.routing';
     imports: [
       BrowserModule,
       ContactModule,
+      AuthModule,
       routing,
       HttpModule,
       FormsModule

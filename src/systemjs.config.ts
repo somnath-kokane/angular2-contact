@@ -3,6 +3,7 @@ const map: any = {
   'main': 'main.js',
   'app':'app',
   'contact': 'app/contact',
+  'auth': 'auth/contact',
   'html': 'systemjs-plugin-text/text.js',
   'symbol-observable': 'symbol-observable/lib/index.js'
 };

@@ -3,15 +3,18 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser')
 
-var apiRouter = require('./api/router');
-
 var app = express();
+// parse application/x-www-form-urlencoded 
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json 
 app.use(bodyParser.json())
+
+var apiRouter = require('./api/router');
 
 app.use(function (req, res, next) {
   next();
 });
-
 
 app.use(express.static('src'))
 app.use(express.static('dist'))

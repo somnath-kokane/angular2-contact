@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+
+let contacts:any[] = [];
 
 export class Contact {
   id: number;
   name: string;
 }
 
+
 @Injectable()
 export class ContactService {
-  contacts: Contact[];
+  contacts:any[] = [];
   constructor(
-    private http: Http) {}
+    private http: Http) {
+
+  }
   
   getContacts(): Observable<Contact[]> {
-    if(this.contacts){
-      return Observable.of(this.contacts)
-    }
     let url = '/v1/contact';
     return this.http
       .get(url)
@@ -31,7 +33,6 @@ export class ContactService {
     if(!!status.success === false){
       return Observable.throw(status.message);
     }
-    this.contacts = data;
     return data;
   }
 
@@ -44,18 +45,33 @@ export class ContactService {
   
   getContact(id: number|string){
     return this.getContacts()
-      .map(contacts => contacts.find(contact => contact.id === +id)[0])
+      .map((contacts) => contacts.find(contact => contact.id === +id)[0])
   }
 
   getNextId(){
     return 1 + (this.contacts || []).length;
   }
 
-  saveContact(contact: Contact){
-    let ix = this.contacts.indexOf(contact);
-    if(!!~ix === false){
-      this.contacts.push(contact);
-    }
+  saveContact(contact: Contact): Observable<any> {
+    let body = JSON.stringify(contact);
+    let url = '/v1/contact';
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http
+      .post(url, body, options)
+      .map(this.handleResponse)
+      .map((data) => {
+        console.log("data", data);
+        contact.id = contact.id || data.id;
+        console.log('contacts', this.contacts);
+        let hasContact = this.contacts.some(c => c.id === contact.id);
+        if(!hasContact){
+          this.contacts.push(contact);
+        }
+        
+        return contact;
+      })
+      .catch(this.handleError);
   }
 
   deleteContact(contact: Contact){

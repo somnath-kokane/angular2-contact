@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 
-import { Contact, ContactService } from '../shared/contact.service';
+import { Contact, ContactService } from '../contact.service';
 
 @Component({
   //moduleId: module.id,
@@ -13,23 +13,28 @@ export class ContactFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private contactService: ContactService) {}
+    private service: ContactService
+    ) {
+    
+  }
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
     if(id == 'new'){
       this.contact = new Contact();
-      this.contact.id = this.contactService.getNextId();
     } else {
-      this.contactService.getContact(id)
-        .subscribe(contact => this.contact = contact);
+      this.service.getContact(id)
+        .subscribe((contact) => this.contact = contact);
     }
     
   }
 
   onSubmit(){
-    this.contactService.saveContact(this.contact);
-    this.router.navigate(['/contact'])
+    this.service
+      .saveContact(this.contact)
+      .subscribe((contact) => {
+        this.router.navigate(['/contact'])
+      });
     return false;
   }
 }

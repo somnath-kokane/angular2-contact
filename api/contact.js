@@ -35,6 +35,12 @@ function getById(req, res, next){
 }
 
 function create(req, res, next){
-  res.locals.data = ({id: (new Date).getTime()})
+  var contact = req.body;
+  console.log('contact', contact);
+  var id = (new Date).getTime();
+  contact.id = id;
+  contacts.push(contact);
+  console.log('contacts', contacts);
+  res.locals.data = ({id: id})
   next();
 }
