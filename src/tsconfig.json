@@ -4,7 +4,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
-    "sourceRoot": "./auth",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
