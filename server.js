@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/src', express.static('src'))
+
 app.use(express.static('dist'))
 app.use(express.static('public'))
 app.use(express.static('node_modules'))
