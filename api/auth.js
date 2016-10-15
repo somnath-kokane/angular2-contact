@@ -1,7 +1,7 @@
 
 var defaults = {
   email: 'smnthk@gmail.com',
-  password: '123456'
+  password: 'Password1'
 }
 
 exports.Http401Error = Http401Error;
