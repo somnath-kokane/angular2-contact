@@ -1,9 +1,9 @@
 .row
   .col-md-6
     p
-      a.btn.btn-primary(routerLink='/contact/form/new') New Contact
+      a.btn.btn-primary('[routerLink]'="['/contact/form/new']") New Contact
 
     .list-group('*ngIf'='contacts')
       a.list-group-item('*ngFor'='let contact of contacts'
-        routerLink='/contact/detail/{{contact.id}}')
+        '[routerLink]'="['/contact/detail', contact.id]")
           span {{contact.name}}

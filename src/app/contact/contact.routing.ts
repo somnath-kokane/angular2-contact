@@ -7,7 +7,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const routes: Routes = [
   { 
-    path: '', 
+    path: 'contact', 
     component: ContactComponent,
     children: [
       { path: '', component: ContactListComponent },

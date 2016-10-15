@@ -20,13 +20,17 @@ export class LoginComponent implements OnInit {
       email: '',
       password: ''
     };
+    if(AuthService.isLoggedIn()){
+      this.router.navigate(['']);
+      return
+    }
   }
 
   onSubmit(){
     this.service
       .login(this.user)
       .subscribe(() => {
-        this.router.navigate(['/contact'])
+        this.router.navigate([''])
       });
     
     return false;

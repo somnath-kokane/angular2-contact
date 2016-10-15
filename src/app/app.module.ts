@@ -1,6 +1,5 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
-import { AppComponent }   from './app.component';
 
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
@@ -13,8 +12,11 @@ import {RestService} from './shared/rest.service';
 
 import { routing } from './app.routing';
 
+import { AppComponent }   from './app.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, DashboardComponent],
     imports: [
       BrowserModule,
       ContactModule,

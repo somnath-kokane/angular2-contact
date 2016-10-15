@@ -1,6 +1,16 @@
 .container
-  nav
-    a(routerLink="/auth/login") Login
+  .navbar.navbar-default
+    .navbar-header
+      a.navbar-brand(href='javascript:void(0)') Brand
+    ul.nav.navbar-nav('*ngIf'='isLoggedIn')
+      li
+        a('[routerLink]'="['/contact']") Contacts
+    ul.nav.navbar-nav.navbar-right('*ngIf'='isLoggedIn')
+      li
+        a(href='javascript:void(0)' '(click)'='logout()') Logout
 
-.container
+    ul.nav.navbar-nav.navbar-right('*ngIf'='!isLoggedIn')
+      li
+        a('[routerLink]'="['/auth/login']") login
+
   router-outlet
