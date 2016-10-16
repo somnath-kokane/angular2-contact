@@ -8,23 +8,25 @@ export class AuthService {
 
   static loggedIn: EventEmitter<any> = new EventEmitter();
 
-  static isLoggedIn(): boolean|void {
+  static isLoggedIn(): boolean {
     let jsonString = sessionStorage.getItem('isLoggedIn');
     let json: any;
     try {
       json = JSON.parse(jsonString)
     } catch(e){
-      //
+      return false
     };
     
     return json 
       ? json.data
       : false
   };
+
+  isLoggedIn: boolean = false;
   
   constructor(
     private rest: RestService) {
-    
+    this.isLoggedIn = AuthService.isLoggedIn();
   }
 
   login(user: any): Observable<any> {
@@ -36,6 +38,7 @@ export class AuthService {
         let isLoggedIn:any;
         isLoggedIn = data.isLogin;
         sessionStorage.setItem('isLoggedIn', JSON.stringify({data:isLoggedIn}));
+        this.isLoggedIn = true;
         AuthService.loggedIn.emit(isLoggedIn);
         return data;
       });
